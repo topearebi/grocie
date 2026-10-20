@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Grocery Genie — record grocery prices as you shop, compare similar products across stores, and build the cheapest possible shopping list.">
+    <meta name="theme-color" content="#1a7f5a">
     <title>Grocery Genie</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Grocery Genie</h1>
+    <header class="app-header">
+        <div class="brand">
+            <h1>Grocery Genie</h1>
+            <span class="tagline">Your prices. Your savings.</span>
+        </div>
+        <button type="button" id="sync-status" class="sync-status s-local" title="GitHub sync status — click for settings">Local only</button>
+    </header>
 
-    <input type="text" id="search-box" placeholder="Search for groceries...">
-    <button id="search-button">Search</button>
+    <nav class="tabs" id="tabs" aria-label="Main">
+        <a href="#/capture" data-tab="capture">Capture</a>
+        <a href="#/search" data-tab="search">Search</a>
+        <a href="#/list" data-tab="list">List <span id="list-badge" class="badge" hidden>0</span></a>
+        <a href="#/settings" data-tab="settings">Settings</a>
+    </nav>
 
-    <div id="search-results"></div>
+    <main id="view" class="view" aria-live="polite"></main>
 
-    <h2>My Grocery List</h2>
-    <table id="grocery-list">
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Brand</th>
-                <th>Lidl</th>
-                <th>Tesco</th>
-                <th>Aldi</th>
-                <th>Actions</th> 
-            </tr>
-        </thead>
-        <tbody></tbody> 
-    </table>
+    <noscript>
+        <p class="noscript">Grocery Genie needs JavaScript to run.</p>
+    </noscript>
 
-    <div id="total-cost"></div>
-
-    <button id="clear-list-button">Clear List</button>
-    <button id="print-list-button">Print List</button>
-
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.1/papaparse.min.js"></script> 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5"></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
